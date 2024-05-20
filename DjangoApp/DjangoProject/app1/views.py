@@ -28,7 +28,18 @@ It comprises of nine faculties that of Computer Science & Information Technology
     return render(request,"about.html",context)
 
 
-
 def contact(request):
-    return render(request,'contact.html',{})
+    if request.method=="POST":
+        name =request.POST.get("name")
+        email =request.POST.get("email")
+        phone=request.POST.get("phone")
+        context={
+            "name":name,
+            "email":email,
+            "phone":phone
+        }
+        return render(request,"data.html",context)
+        
     
+        
+    return render(request,"contact.html",{})
