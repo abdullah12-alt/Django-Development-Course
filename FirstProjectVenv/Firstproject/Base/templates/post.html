@@ -1,0 +1,8 @@
+{%for i in post%}
+    <div class="post">
+        <img src="{{i.post_img.url}}" alt="">
+        <h2>{{i.title}}</h2>
+        <p>{{i.content}}</p>
+        <p>{{i.created_at}}</p>
+    </div>
+{%endfor%}

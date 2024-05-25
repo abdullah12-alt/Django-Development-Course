@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Post
 # Create your views here.
 
+def post(request):
+    post=Post.objects.all()
+    context={'post':post}
+    for i in post:
+        print(i.post_img.url)
+    return render(request,"post.html",context)
 
-def hello(request):
-    return HttpResponse("Hello Django")
