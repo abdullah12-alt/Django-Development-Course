@@ -1,8 +1,24 @@
-{%for i in post%}
-    <div class="post">
-        <img src="{{i.post_img.url}}" alt="">
-        <h2>{{i.title}}</h2>
-        <p>{{i.content}}</p>
-        <p>{{i.created_at}}</p>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    {% for i in post %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ i.post_img.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <a href="{% url 'post-details' i.id %}"><h5 class="card-title">{{ i.title }}</h5></a>
+            <p class="card-text">{{ i.content|truncatechars:80 }}</p>
+            <a href="#" class="btn btn-primary">Like</a>
+        </div>
+        <div class="card-footer">
+            
+          <p>{{ i.created_at }}</p>
+        </div>
+      </div>
     </div>
-{%endfor%}
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

@@ -21,11 +21,12 @@ class Post(models.Model):
         # run migrations
 # step 4
 #       register model at admin.py
-step 5:
+# step 5:
     # create a view to show post
 # step 6:
     # create a template to show post
     
 # step 7:
+# https://getbootstrap.com/docs/5.3/getting-started/introduction/
 #    add a card from bootstrap to show post  :https://getbootstrap.com/docs/5.3/components/card/
     

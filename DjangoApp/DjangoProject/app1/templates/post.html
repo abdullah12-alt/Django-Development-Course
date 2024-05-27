@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container mt-5">
+{% for i in post %}
+<div class="card w-75">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.description}}</p>
+      <a href="#" class="btn btn-primary">Like</a>
+    </div>
+</div>
+{%endfor%}
+</div>
+{% endblock content%}
