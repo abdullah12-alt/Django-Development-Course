@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Cart Page{% endblock %} 
+{% block content %}
+<h1>Shopping Cart</h1>
+<div class="row">
+    <div class="col-md-8">
+        
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.cartitem_set.all %}
+              <tr>
+                <td>{{item.product.name}}</td>
+                <td>${{item.product.price}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.quantity| floatformat:2}}</td>
+              </tr>
+              {% endfor %}
+              
+              
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Cart Summary</h5>
+              {% for item in cart.cartitem_set.all %}
+                <p class="card-text">{{item.product.price}} x {{item.quantity}}</p>
+              {% endfor %}
+              
+                <h5>Total: ${{cart.total}}</h5>
+              <a href="#" class="btn btn-success">Checkout</a>
+            </div>
+          </div>
+    </div>
+{% endblock content %}
